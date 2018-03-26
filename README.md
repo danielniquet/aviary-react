@@ -10,17 +10,25 @@
 npm install --save aviary-react
 ```
 
+```bash
+yarn add aviary-react
+```
+
 ## Usage
 
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'aviary-react'
+import AviaryReact from 'aviary-react'
 
 class Example extends Component {
+  onSave = (URL)=>{
+    //You receive S3 URL
+    console.log(URL)
+  }
   render () {
     return (
-      <MyComponent />
+      <AviaryReact apiKey="myAPIkeyFromCreativeSDK" onSave={this.onSave} />
     )
   }
 }
