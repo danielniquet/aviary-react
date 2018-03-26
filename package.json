@@ -1,6 +1,6 @@
 {
   "name": "aviary-react",
-  "version": "1.0.0",
+  "version": "0.0.10",
   "description": "Show an aviary control component on a React project",
   "author": "danielniquet",
   "license": "MIT",
