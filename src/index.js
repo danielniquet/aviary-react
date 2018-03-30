@@ -28,7 +28,7 @@ export default class ExampleComponent extends Component {
   }
 
   state={
-    file:null,
+    file:this.props.file,
     fileURL: null,
     aviaryURL: null,
   }
@@ -82,15 +82,23 @@ export default class ExampleComponent extends Component {
   }
   handleRestart = (ev)=>{
     ev.preventDefault();
-    this.PrvImage.setAttribute('src', this.state.file.preview)
+    this.PrvImage.setAttribute('src', this.state.file && this.state.file.preview)
     this.setState({aviaryURL: null},()=>this.handleAviary())
   }
   handleUploadAgain = ()=>{
     this.setState({file:null, fileURL:null, aviaryURL: null})
   }
+  componentWillReceiveProps(nextProps){
+    if(nextProps.file){
+      this.setState({file:nextProps.file, aviaryURL:null},()=>this.handleAviary())
+    }
+  }
+
+
   render(){
-    const {file,aviaryURL} = this.state;
+    const {aviaryURL} = this.state;
     const self = this;
+    const file = this.state.file
     return (
       <Segment>
         <Script

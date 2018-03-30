@@ -28,11 +28,15 @@ class Example extends Component {
   }
   render () {
     return (
-      <AviaryReact apiKey="myAPIkeyFromCreativeSDK" onSave={this.onSave} />
+      <AviaryReact apiKey="myAPIkeyFromCreativeSDK" onSave={this.onSave} file={myFile} />
     )
   }
 }
 ```
+
+apiKey - Mandatory
+onSave - to receive the generated URL
+file - (optional) in case you want to pass a file
 
 ## License
 
